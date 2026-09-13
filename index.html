@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECYCLE - Ubah Sampah Plastik Menjadi Nilai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-green': '#173F32',
+                        'green': '#3C8B4B',
+                        'light-green': '#C6D87D',
+                        'cream': '#F6F1D5',
+                        'beige': '#DCE49C',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="antialiased text-dark-green overflow-x-hidden">
+
+    <!-- 1. NAVBAR -->
+    <nav class="glass-nav fixed w-full z-50 top-0 transition-all duration-300 border-b border-dark-green/10" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-recycle text-3xl text-green"></i>
+                    <span class="font-bold text-2xl tracking-tighter text-dark-green">RECYCLE</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-dark-green hover:text-green font-medium transition-colors">Home</a>
+                    <a href="#produk" class="text-dark-green hover:text-green font-medium transition-colors">Profil Produk</a>
+                    <a href="#masalah" class="text-dark-green hover:text-green font-medium transition-colors">Permasalahan</a>
+                    <a href="#solusi" class="text-dark-green hover:text-green font-medium transition-colors">Solusi</a>
+                    <a href="#tim" class="text-dark-green hover:text-green font-medium transition-colors">Tim</a>
+                    <a href="#lokasi" class="text-dark-green hover:text-green font-medium transition-colors">Lokasi</a>
+                    <a href="#contact" class="text-dark-green hover:text-green font-medium transition-colors">Contact</a>
+                    <a href="#mulai" class="bg-dark-green text-cream px-6 py-2.5 rounded-full font-semibold hover:bg-green transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Get Started</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-dark-green hover:text-green focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden hidden bg-cream border-t border-dark-green/10 absolute w-full">
+            <div class="px-2 pt-2 pb-4 space-y-1 shadow-lg">
+                <a href="#home" class="block px-3 py-2 text-dark-green font-medium hover:bg-beige rounded-md mobile-link">Home</a>
+                <a href="#produk" class="block px-3 py-2 text-dark-green font-medium hover:bg-beige rounded-md mobile-link">Profil Produk</a>
+                <a href="#masalah" class="block px-3 py-2 text-dark-green font-medium hover:bg-beige rounded-md mobile-link">Permasalahan</a>
+                <a href="#solusi" class="block px-3 py-2 text-dark-green font-medium hover:bg-beige rounded-md mobile-link">Solusi</a>
+                <a href="#tim" class="block px-3 py-2 text-dark-green font-medium hover:bg-beige rounded-md mobile-link">Tim</a>
+                <a href="#lokasi" class="block px-3 py-2 text-dark-green font-medium hover:bg-beige rounded-md mobile-link">Lokasi</a>
+                <a href="#contact" class="block px-3 py-2 text-dark-green font-medium hover:bg-beige rounded-md mobile-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-br from-cream via-beige to-light-green relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up">
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-dark-green mb-4 leading-tight tracking-tight">RECYCLE</h1>
+                    <h2 class="text-2xl lg:text-3xl font-semibold text-green mb-6">Transform Plastic Waste Into Sustainable Products</h2>
+                    <p class="text-lg text-dark-green/80 mb-8 max-w-lg leading-relaxed">
+                        Kami mengubah sampah plastik menjadi produk yang memiliki nilai guna dan nilai ekonomi, sekaligus membantu mengurangi permasalahan lingkungan.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#produk" class="bg-dark-green text-cream px-8 py-3.5 rounded-full font-bold hover:bg-green transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">Lihat Produk</a>
+                        <a href="#solusi" class="bg-transparent border-2 border-dark-green text-dark-green px-8 py-3.5 rounded-full font-bold hover:bg-dark-green hover:text-cream transition-all">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+                <div class="relative animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <!-- Placeholder visual hero -->
+                    <div class="relative w-full aspect-square max-w-md mx-auto">
+                        <div class="absolute inset-0 bg-light-green rounded-full opacity-50 blur-3xl"></div>
+                        <div class="relative z-10 bg-white rounded-3xl shadow-2xl p-8 flex flex-col items-center justify-center h-full border border-green/20 animate-float">
+                            <i class="fa-solid fa-recycle text-9xl text-green mb-6"></i>
+                            <div class="flex gap-4 mb-4 text-4xl text-dark-green">
+                                <i class="fa-solid fa-leaf"></i>
+                                <i class="fa-solid fa-bottle-water opacity-50"></i>
+                                <i class="fa-solid fa-box-open"></i>
+                            </div>
+                            <p class="text-center font-bold text-dark-green mt-4">Eco-Friendly Future</p>
+                        </div>
+                        
+                        <!-- Floating elements -->
+                        <div class="absolute top-10 -left-10 bg-cream p-4 rounded-2xl shadow-lg animate-float" style="animation-delay: 1s;">
+                            <i class="fa-solid fa-leaf text-green text-3xl"></i>
+                        </div>
+                        <div class="absolute bottom-10 -right-4 bg-dark-green p-4 rounded-2xl shadow-lg animate-float" style="animation-delay: 1.5s;">
+                            <i class="fa-solid fa-globe text-cream text-3xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PROFIL PRODUK -->
+    <section id="produk" class="py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-green mb-4">Profil Produk</h2>
+                <p class="text-lg text-dark-green/80 max-w-3xl mx-auto">
+                    Produk kami merupakan hasil inovasi pemanfaatan sampah plastik yang dikumpulkan dari lingkungan sekitar, kemudian dipilah dan diolah menjadi produk yang memiliki nilai guna serta nilai ekonomi.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mt-12 bg-white rounded-3xl shadow-xl overflow-hidden">
+                <div class="h-full bg-beige p-12 flex items-center justify-center min-h-[400px]">
+                    <img src="./images/product.jpg" alt="ECOPLASTIC" class="w-full h-full object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-10 lg:p-12">
+                    <div class="inline-block px-4 py-1.5 bg-light-green text-dark-green font-semibold rounded-full text-sm mb-4">Inovasi Unggulan</div>
+                    <h3 class="text-3xl font-bold text-dark-green mb-4">ECOPLASTIC</h3>
+                    <p class="text-dark-green/80 mb-8 leading-relaxed">
+                        ECOPLASTIC merupakan produk inovatif yang memanfaatkan limbah plastik sebagai bahan utama. Produk ini dikembangkan sebagai solusi untuk mengurangi sampah plastik sekaligus menciptakan produk yang bermanfaat bagi masyarakat.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-dark-green font-medium">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green text-white flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                            Memanfaatkan sampah plastik
+                        </li>
+                        <li class="flex items-center gap-3 text-dark-green font-medium">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green text-white flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                            Mengurangi limbah lingkungan
+                        </li>
+                        <li class="flex items-center gap-3 text-dark-green font-medium">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green text-white flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                            Memiliki nilai ekonomi
+                        </li>
+                        <li class="flex items-center gap-3 text-dark-green font-medium">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green text-white flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                            Ramah lingkungan
+                        </li>
+                        <li class="flex items-center gap-3 text-dark-green font-medium">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green text-white flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                            Mendukung ekonomi sirkular
+                        </li>
+                    </ul>
+                    <button class="bg-dark-green text-cream px-8 py-3 rounded-full font-semibold hover:bg-green transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                        Lihat Detail Produk
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PERMASALAHAN SAMPAH PLASTIK -->
+    <section id="masalah" class="py-24 bg-dark-green text-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Permasalahan yang Kami Ambil</h2>
+                <p class="text-lg text-cream/80 max-w-3xl mx-auto leading-relaxed">
+                    Sampah plastik merupakan salah satu permasalahan lingkungan yang dapat ditemukan di berbagai wilayah, termasuk lingkungan permukiman dan kawasan aktivitas masyarakat.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 card-hover transition-all duration-300">
+                    <div class="w-14 h-14 bg-light-green rounded-2xl flex items-center justify-center text-3xl mb-6">🗑️</div>
+                    <h3 class="text-xl font-bold mb-3">Penumpukan Sampah Plastik</h3>
+                    <p class="text-cream/70 text-sm leading-relaxed">
+                        Penggunaan plastik yang tinggi dapat menyebabkan peningkatan jumlah sampah apabila tidak diikuti dengan pengelolaan yang baik.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 card-hover transition-all duration-300">
+                    <div class="w-14 h-14 bg-light-green rounded-2xl flex items-center justify-center text-3xl mb-6">🌊</div>
+                    <h3 class="text-xl font-bold mb-3">Pencemaran Lingkungan</h3>
+                    <p class="text-cream/70 text-sm leading-relaxed">
+                        Sampah plastik yang tidak dikelola dengan baik dapat mencemari lingkungan dan mengganggu kebersihan kawasan.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 card-hover transition-all duration-300">
+                    <div class="w-14 h-14 bg-light-green rounded-2xl flex items-center justify-center text-3xl mb-6">♻️</div>
+                    <h3 class="text-xl font-bold mb-3">Rendahnya Pemanfaatan</h3>
+                    <p class="text-cream/70 text-sm leading-relaxed">
+                        Sebagian sampah plastik masih dianggap sebagai limbah dan belum dimanfaatkan kembali menjadi produk yang bernilai.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 card-hover transition-all duration-300">
+                    <div class="w-14 h-14 bg-light-green rounded-2xl flex items-center justify-center text-3xl mb-6">🌱</div>
+                    <h3 class="text-xl font-bold mb-3">Kesadaran Pengelolaan</h3>
+                    <p class="text-cream/70 text-sm leading-relaxed">
+                        Diperlukan peningkatan kesadaran masyarakat untuk memilah, mengurangi, dan memanfaatkan kembali sampah plastik.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LOKASI DAN LINGKUNGAN SASARAN -->
+    <section id="lokasi" class="py-24 bg-beige relative overflow-hidden">
+        <!-- Decorative bg elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-light-green rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-green rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-dark-green mb-8">Lokasi Kegiatan</h2>
+                    
+                    <div class="bg-white p-8 rounded-3xl shadow-lg border border-dark-green/5 mb-8">
+                        <h3 class="text-2xl font-bold text-green mb-2">Kampung Prawirotaman & Timuran</h3>
+                        <p class="text-dark-green/70 mb-6">Kecamatan Mergangsan, Kota Yogyakarta</p>
+                        
+                        <div class="space-y-4">
+                            <p class="text-dark-green/80 leading-relaxed">
+                                Kegiatan pengelolaan dan pemanfaatan sampah plastik berfokus pada kawasan Kampung Prawirotaman dan Kampung Timuran, Kota Yogyakarta.
+                            </p>
+                            <p class="text-dark-green/80 leading-relaxed">
+                                Wilayah ini menjadi lokasi sasaran untuk mengidentifikasi permasalahan sampah plastik, meningkatkan kesadaran masyarakat, serta mengembangkan pemanfaatan sampah menjadi produk yang memiliki nilai tambah.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-light-green/50 text-dark-green rounded-full text-sm font-medium"><i class="fa-solid fa-location-dot"></i> Prawirotaman</span>
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-light-green/50 text-dark-green rounded-full text-sm font-medium"><i class="fa-solid fa-location-dot"></i> Timuran</span>
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-light-green/50 text-dark-green rounded-full text-sm font-medium"><i class="fa-solid fa-location-dot"></i> Mergangsan</span>
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-light-green/50 text-dark-green rounded-full text-sm font-medium"><i class="fa-solid fa-city"></i> Yogyakarta</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Map -->
+                <div class="h-[500px] w-full bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-white relative">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Kampung%20Prawirotaman,%20Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SOLUSI YANG DITAWARKAN -->
+    <section id="solusi" class="py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-green mb-4">Solusi yang Kami Tawarkan</h2>
+                <p class="text-lg text-dark-green/80 max-w-2xl mx-auto">Pendekatan komprehensif kami dalam menangani permasalahan sampah plastik.</p>
+            </div>
+
+            <!-- Flow visual desktop -->
+            <div class="hidden lg:flex justify-between items-center max-w-5xl mx-auto mb-16 text-dark-green font-bold text-lg">
+                <div class="flex flex-col items-center gap-2"><div class="w-16 h-16 rounded-full bg-light-green flex items-center justify-center text-2xl shadow-md">1</div><span>SAMPAH PLASTIK</span></div>
+                <i class="fa-solid fa-arrow-right text-green text-2xl"></i>
+                <div class="flex flex-col items-center gap-2"><div class="w-16 h-16 rounded-full bg-beige flex items-center justify-center text-2xl shadow-md">2</div><span>PEMILAHAN</span></div>
+                <i class="fa-solid fa-arrow-right text-green text-2xl"></i>
+                <div class="flex flex-col items-center gap-2"><div class="w-16 h-16 rounded-full bg-green text-white flex items-center justify-center text-2xl shadow-md">3</div><span>PENGOLAHAN</span></div>
+                <i class="fa-solid fa-arrow-right text-green text-2xl"></i>
+                <div class="flex flex-col items-center gap-2"><div class="w-16 h-16 rounded-full bg-dark-green text-white flex items-center justify-center text-2xl shadow-md">4</div><span>INOVASI</span></div>
+                <i class="fa-solid fa-arrow-right text-green text-2xl"></i>
+                <div class="flex flex-col items-center gap-2"><div class="w-16 h-16 rounded-full bg-light-green flex items-center justify-center text-2xl shadow-md"><i class="fa-solid fa-star"></i></div><span>PRODUK BERNILAI</span></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-green card-hover transition-all">
+                    <h3 class="text-2xl font-bold text-dark-green mb-3">Collect</h3>
+                    <p class="text-dark-green/70">Mengumpulkan sampah plastik dari lingkungan sekitar.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-green card-hover transition-all">
+                    <h3 class="text-2xl font-bold text-dark-green mb-3">Sort</h3>
+                    <p class="text-dark-green/70">Memilah sampah berdasarkan jenis dan kondisi material.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-green card-hover transition-all">
+                    <h3 class="text-2xl font-bold text-dark-green mb-3">Recycle</h3>
+                    <p class="text-dark-green/70">Mengolah sampah plastik menjadi bahan yang dapat digunakan kembali.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-green card-hover transition-all">
+                    <h3 class="text-2xl font-bold text-dark-green mb-3">Create</h3>
+                    <p class="text-dark-green/70">Menghasilkan produk inovatif yang memiliki nilai guna dan nilai ekonomi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. KEUNGGULAN PRODUK -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-green">Mengapa Memilih Produk Kami?</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-light-green flex items-center justify-center text-3xl flex-shrink-0 shadow-sm">🌱</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-dark-green mb-2">Eco Friendly</h3>
+                        <p class="text-dark-green/70 leading-relaxed">Mengurangi jumlah sampah plastik di lingkungan dan mencegah pencemaran lebih lanjut.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-light-green flex items-center justify-center text-3xl flex-shrink-0 shadow-sm">♻️</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-dark-green mb-2">Sustainable</h3>
+                        <p class="text-dark-green/70 leading-relaxed">Mendukung pemanfaatan kembali material yang masih memiliki nilai melalui prinsip ekonomi sirkular.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-light-green flex items-center justify-center text-3xl flex-shrink-0 shadow-sm">💡</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-dark-green mb-2">Innovative</h3>
+                        <p class="text-dark-green/70 leading-relaxed">Mengubah limbah yang tidak berguna menjadi produk kreatif dengan desain modern.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-light-green flex items-center justify-center text-3xl flex-shrink-0 shadow-sm">💰</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-dark-green mb-2">Economic Value</h3>
+                        <p class="text-dark-green/70 leading-relaxed">Memberikan nilai tambah terhadap sampah plastik sehingga dapat memberdayakan masyarakat secara ekonomi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PROFIL TIM -->
+    <section id="tim" class="py-24 bg-beige relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-green mb-4">Profil Tim</h2>
+                <p class="text-lg text-dark-green/80 max-w-3xl mx-auto">
+                    Kami merupakan satu tim yang memiliki kepedulian terhadap permasalahan sampah plastik dan berkomitmen untuk menciptakan solusi inovatif melalui pemanfaatan limbah menjadi produk bernilai.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+                <div class="h-72 md:h-96 relative flex items-center justify-center overflow-hidden">
+                    <img src="./images/team.jpg" alt="Recycle Team" class="w-full h-full object-cover object-center">
+                    <div class="absolute inset-0 bg-dark-green/30"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-green/80 to-transparent"></div>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white absolute bottom-8 z-10 tracking-widest drop-shadow-lg">RECYCLE TEAM</h3>
+                </div>
+                <div class="p-8 md:p-12">
+                    <p class="text-lg text-dark-green/80 mb-8 leading-relaxed text-center font-medium">
+                        "RECYCLE TEAM merupakan tim yang berfokus pada pengembangan inovasi pengolahan sampah plastik menjadi produk yang memiliki nilai guna dan nilai ekonomi."
+                    </p>
+                    
+                    <div class="bg-cream p-8 rounded-2xl mb-8">
+                        <h4 class="font-bold text-dark-green text-lg mb-4">Bidang Kerja Tim:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-green mt-1"></i>
+                                <span class="text-dark-green">Pengumpulan dan identifikasi sampah plastik</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-green mt-1"></i>
+                                <span class="text-dark-green">Pengembangan dan produksi produk</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-green mt-1"></i>
+                                <span class="text-dark-green">Pemasaran dan pengembangan pasar</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-green mt-1"></i>
+                                <span class="text-dark-green">Pengelolaan serta pengembangan usaha</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="bg-transparent border-2 border-green text-green px-8 py-3 rounded-full font-bold hover:bg-green hover:text-white transition-all">
+                            Kenali Tim Kami
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. DAMPAK / IMPACT -->
+    <section class="py-24 bg-dark-green text-cream relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Small Action, Big Impact</h2>
+                <p class="text-lg text-cream/70">Dampak nyata dari langkah kecil yang kita ambil bersama.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-white/20">
+                <div class="p-4">
+                    <div class="text-5xl md:text-6xl font-extrabold text-light-green mb-2 counter" data-target="100">0</div>
+                    <div class="text-3xl font-bold text-light-green mb-4">+</div>
+                    <p class="font-medium text-cream/90">Sampah Plastik<br>Dimanfaatkan</p>
+                </div>
+                <div class="p-4">
+                    <div class="text-5xl md:text-6xl font-extrabold text-light-green mb-2 counter" data-target="50">0</div>
+                    <div class="text-3xl font-bold text-light-green mb-4">+</div>
+                    <p class="font-medium text-cream/90">Produk<br>Dihasilkan</p>
+                </div>
+                <div class="p-4">
+                    <div class="text-5xl md:text-6xl font-extrabold text-light-green mb-2 counter" data-target="30">0</div>
+                    <div class="text-3xl font-bold text-light-green mb-4">+</div>
+                    <p class="font-medium text-cream/90">Masyarakat<br>Terlibat</p>
+                </div>
+                <div class="p-4">
+                    <div class="text-5xl md:text-6xl font-extrabold text-light-green mb-2 counter" data-target="1">0</div>
+                    <div class="text-3xl font-bold text-light-green mb-4 invisible">+</div>
+                    <p class="font-medium text-cream/90">Tujuan<br>Bersama</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CALL TO ACTION -->
+    <section class="py-20 bg-light-green relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-dark-green to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-dark-green mb-6">Bersama Kurangi Sampah Plastik</h2>
+            <p class="text-xl text-dark-green/90 mb-10 leading-relaxed font-medium">
+                Mulai dari lingkungan sekitar. Bersama masyarakat Kampung Prawirotaman dan Kampung Timuran, kita dapat mengubah sampah plastik menjadi sesuatu yang lebih bernilai.
+            </p>
+            <a href="#contact" class="inline-block bg-dark-green text-cream px-10 py-4 rounded-full font-bold text-lg hover:bg-green transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                Hubungi Kami Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- 11. CONTACT -->
+    <section id="contact" class="py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl font-bold text-dark-green mb-6">Mari Berkolaborasi</h2>
+                    <p class="text-lg text-dark-green/80 mb-10">
+                        Tertarik dengan produk kami atau ingin bekerjasama dalam pengelolaan sampah plastik? Jangan ragu untuk menghubungi kami.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-light-green rounded-full flex items-center justify-center text-dark-green text-xl flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-green">Lokasi</h4>
+                                <p class="text-dark-green/70">Kampung Prawirotaman & Timuran,<br>Kecamatan Mergangsan, Kota Yogyakarta</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-light-green rounded-full flex items-center justify-center text-dark-green text-xl flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-green">Email</h4>
+                                <p class="text-dark-green/70">recycle@email.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-light-green rounded-full flex items-center justify-center text-dark-green text-xl flex-shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-green">WhatsApp</h4>
+                                <p class="text-dark-green/70">08XXXXXXXXXX</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-light-green rounded-full flex items-center justify-center text-dark-green text-xl flex-shrink-0">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-green">Instagram</h4>
+                                <p class="text-dark-green/70">@recycle.project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl">
+                    <h3 class="text-2xl font-bold text-dark-green mb-6">Kirim Pesan</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-dark-green mb-2">Nama Lengkap</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all" placeholder="Masukkan nama anda">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-dark-green mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all" placeholder="Masukkan email anda">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-dark-green mb-2">Pesan</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all resize-none" placeholder="Tulis pesan anda di sini..."></textarea>
+                        </div>
+                        <button type="button" class="w-full bg-green text-white font-bold py-4 rounded-xl hover:bg-dark-green transition-colors shadow-md">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. FOOTER -->
+    <footer class="bg-dark-green text-cream pt-16 pb-8 border-t-4 border-light-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-recycle text-3xl text-light-green"></i>
+                        <span class="font-bold text-3xl tracking-tighter text-white">RECYCLE</span>
+                    </div>
+                    <p class="text-cream/80 text-lg mb-6 max-w-md italic font-medium">
+                        "Transform Plastic Waste Into Sustainable Products"
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-light-green hover:text-dark-green transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-light-green hover:text-dark-green transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-light-green hover:text-dark-green transition-all"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Menu Cepat</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-cream/70 hover:text-light-green transition-colors">Home</a></li>
+                        <li><a href="#produk" class="text-cream/70 hover:text-light-green transition-colors">Produk</a></li>
+                        <li><a href="#masalah" class="text-cream/70 hover:text-light-green transition-colors">Permasalahan</a></li>
+                        <li><a href="#solusi" class="text-cream/70 hover:text-light-green transition-colors">Solusi</a></li>
+                        <li><a href="#tim" class="text-cream/70 hover:text-light-green transition-colors">Tim</a></li>
+                        <li><a href="#lokasi" class="text-cream/70 hover:text-light-green transition-colors">Lokasi</a></li>
+                        <li><a href="#contact" class="text-cream/70 hover:text-light-green transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Lokasi Kami</h4>
+                    <p class="text-cream/70 leading-relaxed">
+                        Kampung Prawirotaman & Timuran,<br>
+                        Yogyakarta
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-cream/60">
+                <p>&copy; 2026 RECYCLE. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const reveal = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Trigger on load
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; 
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                const elementTop = counter.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight && counter.innerText === '0') {
+                    updateCount();
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateCounters);
+    </script>
+</body>
+</html>
